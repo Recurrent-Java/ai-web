@@ -1,0 +1,31 @@
+@charset "UTF-8";
+/* 1. 余計な余白を削る（まずは見た目をスッキリさせる） */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* 2. サイズ計算を直感的にする（レイアウト崩れを防ぐおまじない） */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+/* 3. 画像の下に隙間ができないようにし、はみ出しを防ぐ */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 4. 文字を読みやすく、リストのポッチを消す */
+body {
+  line-height: 1.6; /* 1だと行間が狭すぎて読みづらいため */
+}
+
+ul, ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit; /* リンクが勝手に青くならないように */
+}
