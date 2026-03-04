@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+/* 共通設定 */
+:root {
+  /* サイズ */
+  /* 
+  ここで設定するフォントサイズの単位%はブラウザのフォントサイズを基準としています。
+  ブラウザのフォントサイズは、通常、初期設定は「中」となっており、約16pxになります。
+  よって、100% = 16pxとなるため、
+  62.5% → 16px * 0.625 = 10px
+  となります。
+  
+  ページ全体のフォントサイズ(ページ全体のベースとなるサイズ：root)を
+  設定することとなる
+  更に、ブラウザのフォント設定を基準にフォントサイズの
+  ベースを設定することにより、ブラウザのフォントサイズの変更にも
+  対応可能となる
+  通常、初期設定は「中」となっており、約16pxとなっている
+  htmlセレックたによって、0.625emに設定することにより
+  0.625 * 16px = 10px
+  がページ全体のフォントサイズとなる
+*/
+  --fnt-size: 62.5%;
+  /* カラー */
+  --ground-color: #fff;
+  --fnt-color: #000;
+  --link-color: #000;
+  /* フォントの種類 */
+  --font-family-sans-serif: "Source Sans Pro", "Hiragino Kaku Gothic ProN", "メイリオ", "Meiryo", "Arial", sans-serif;
+}
+
+html {
+  color: var(--fnt-color);
+  background-color: var(--ground-color);
+  font-size: calc(var(--fnt-size) * 1.6);
+  /* 16px */
+  font-family: var(--font-family-sans-serif);
+}
+
+section {
+  margin-bottom: 40px;
+}
+
+h2 {
+  width: 100%;
+  margin-bottom: 40px;
+  font-size: 34px;
+  font-weight: bold;
+  text-align: center;
+}
+
+a {
+  color: var(--fnt-color);
+  text-decoration: none;
+}
+
+/*ナビ*/
+nav {
+  display: flex;
+  justify-content: space-between;
+  max-width: 960px;
+  height: 100px;
+  /* marigin: 0 auto;の進化系 */
+  margin-inline: auto;
+  font-size: 34px;
+  font-weight: bold;
+  align-items: center;
+}
+
+/*ナビのMyProfile*/
+h1 {
+  width: 6em;
+  height: 60px;
+  border: 1px solid black;
+  text-align: center;
+  line-height: 60px;
+}
+
+/* ナビのリンク部分 */
+nav div {
+  height: 60px;
+  line-height: 60px;
+}
+
+nav div a:first-child {
+  margin-right: 20px;
+}
+
+/* メイン */
+main {
+  margin-bottom: 40px;
+}
+
+/*メイン画像*/
+#main_imge figure>img {
+  width: 100%;
+}
+
+/*About*/
+section:has(#about) {
+  container-type: inline-size;
+}
+
+#about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@container (max-width: 767px) {
+  #about {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+}
+
+#about img {
+  border: 3px solid #999;
+  border-radius: 150px;
+  padding: 3px;
+}
+
+#about h3 {
+  font-size: 24px;
+  font-weight: bold;
+  padding: 20px;
+}
+
+/*リセットcssで消したリストタグ*/
+#about ul {
+  font-size: calc(var(--fnt-size) * 1.8);
+  /* 18px */
+  margin: 1rem 0;
+  padding-left: 40px;
+  list-style-type: disc;
+}
+
+/*works*/
+section:has(#works_item) {
+  container-type: works_layout/inline-size;
+}
+
+#works_item {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+figure.works {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+figure.works:nth-of-type(2) {
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+@container works_layout (max-width: 767px) {
+  figure.works {
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+  }
+}
+
+figure.works>figcaption {
+  font-size: calc(var(--fnt-size) * 1.8);
+  /* 18px */
+}
+
+figure.works>img {
+  width: 300px;
+  padding-bottom: 20px;
+}
+
+/*footer*/
+footer {
+  text-align: center;
+  margin: 20px auto;
+}
